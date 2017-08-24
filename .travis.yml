@@ -4,5 +4,7 @@ env:
   - SLEEP=120
   - SLEEP=240
   - SLEEP=880
+  - KEEPALIVE=true
+  - KEEPALIVE=false
 
 script: ./sleep.sh $SLEEP
