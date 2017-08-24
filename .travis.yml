@@ -5,10 +5,13 @@ env:
   - SLEEP=240
   - SLEEP=880 KEEPALIVE=true
   - SLEEP=880 KEEPALIVE=false SHOULDERROR=true
+  - SLEEP=1760 KEEPALIVE=true
+  - SLEEP=1760 KEEPALIVE=false SHOULDERROR=true
 
 matrix:
-  fast_finish: true
+  fast_finish: false
   allow_failures:
-    - env: SHOULDERROR=true
+    - SLEEP=880 KEEPALIVE=false SHOULDERROR=true
+    - SLEEP=1760 KEEPALIVE=false SHOULDERROR=true
 
 script: ./sleep.sh $SLEEP
