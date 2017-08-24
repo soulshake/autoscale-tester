@@ -1,7 +1,8 @@
 language: bash
 env:
-  - SLEEP=99
-  - SLEEP=999
-  - SLEEP=9999
+  - SLEEP=60
+  - SLEEP=120
+  - SLEEP=240
+  - SLEEP=880
 
-script: sleep $SLEEP
+script: ./sleep.sh $SLEEP
