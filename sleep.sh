@@ -10,7 +10,7 @@ if [ "${KEEPALIVE}" == true ]; then
   echo "KEEPING ALIVE"
   while [ "${SECONDS}" -lt "${SLEEP}" ]; do
     echo "${SECONDS} < ${SLEEP}"
-    sleep 60
+    sleep 300
   done
 else
   echo "NOT KEEPING ALIVE"

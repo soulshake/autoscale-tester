@@ -1,8 +1,15 @@
 language: bash
 env:
   - SLEEP=60
+  - SLEEP=90
   - SLEEP=120
+  - SLEEP=180
   - SLEEP=240
+  - SLEEP=300
+  - SLEEP=360
+    # 10+ minutes
+  - SLEEP=660 KEEPALIVE=true
+  - SLEEP=660 KEEPALIVE=false SHOULDERROR=true
   - SLEEP=880 KEEPALIVE=true
   - SLEEP=880 KEEPALIVE=false SHOULDERROR=true
   - SLEEP=1760 KEEPALIVE=true
@@ -11,11 +18,20 @@ env:
   - SLEEP=3520 KEEPALIVE=false SHOULDERROR=true
   - SLEEP=7040 KEEPALIVE=true
   - SLEEP=7040 KEEPALIVE=false SHOULDERROR=true
+  - SLEEP=10000 KEEPALIVE=true
+  - SLEEP=10000 KEEPALIVE=false SHOULDERROR=true
+    # 2+ hours
+  - SLEEP=7260 KEEPALIVE=true SHOULDERROR=true
+  - SLEEP=7260 KEEPALIVE=false SHOULDERROR=true
 
 matrix:
   fast_finish: false
   allow_failures:
+    - SLEEP=660 KEEPALIVE=false SHOULDERROR=true
     - SLEEP=880 KEEPALIVE=false SHOULDERROR=true
     - SLEEP=1760 KEEPALIVE=false SHOULDERROR=true
+    - SLEEP=3520 KEEPALIVE=false SHOULDERROR=true
+    - SLEEP=7040 KEEPALIVE=false SHOULDERROR=true
+    - SLEEP=10000 KEEPALIVE=false SHOULDERROR=true
 
 script: ./sleep.sh $SLEEP
