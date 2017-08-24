@@ -6,7 +6,7 @@ SECONDS=0
 echo "START: $(date)"
 echo "SLEEPING: ${SLEEP} seconds"
 
-if [ "${KEEPALIVE}" ]; then
+if [ "${KEEPALIVE}" == true ]; then
   echo "KEEPING ALIVE"
   while [ "${SECONDS}" -lt "${SLEEP}" ]; do
     echo "${SECONDS} < ${SLEEP}"
