@@ -1,1 +1,7 @@
-script: sleep 99
+language: bash
+env:
+  - SLEEP=99
+  - SLEEP=999
+  - SLEEP=9999
+
+script: sleep $SLEEP
