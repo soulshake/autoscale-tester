@@ -1,4 +1,5 @@
 language: bash
+sudo: required
 env:
   - SLEEP=60
   - SLEEP=90
