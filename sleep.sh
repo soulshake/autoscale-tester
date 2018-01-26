@@ -1,7 +1,7 @@
 #!/bin/bash
 
 stderr_echo() {
-    >&2 echo "$@"
+  echo >&2 "$@"
 }
 
 echo=stderr_echo
