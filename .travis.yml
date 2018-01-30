@@ -1,6 +1,7 @@
 language: bash
+
 env:
-  - SLEEP=30
+  - SLEEP=60
 
 script: ./sleep.sh $SLEEP
 
