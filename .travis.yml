@@ -21,8 +21,8 @@ env:
   - SLEEP=7260 KEEPALIVE=false SHOULDERROR=true
  
 matrix:
-  fast_finish: false
-  allow_failures:
+  - fast_finish: false
+  - allow_failures:
     - SLEEP=660 KEEPALIVE=false SHOULDERROR=true
     - SLEEP=880 KEEPALIVE=false SHOULDERROR=true
     - SLEEP=1760 KEEPALIVE=false SHOULDERROR=true
@@ -30,8 +30,15 @@ matrix:
     - SLEEP=7040 KEEPALIVE=false SHOULDERROR=true
     - SLEEP=10000 KEEPALIVE=false SHOULDERROR=true
 
-packages:
-  - traceroute
+before_install:
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+  - sudo apt-get update -q
+  - sudo apt-get install gcc-4.8 -y
+
+addons:
+  apt:
+    packages:
+    - traceroute
 
 script: ./sleep.sh $SLEEP
 
