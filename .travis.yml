@@ -36,11 +36,13 @@ before_install:
   - sudo apt install gcc-4.8 -y
   - sudo apt install jq traceroute -y
 
-#addons:
-  #apt:
-    #packages:
-    #- jq
-    #- traceroute
+addons:
+  apt:
+    sources:
+      - sourceline: 'deb http://us-east-1.ec2.archive.ubuntu.com/ubuntu/'
+    packages:
+      - jq
+      - traceroute
 
 script: ./sleep.sh $SLEEP
 
