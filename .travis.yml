@@ -39,7 +39,7 @@ before_install:
 addons:
   apt:
     sources:
-      - sourceline: 'deb http://us-east-1.ec2.archive.ubuntu.com/ubuntu/'
+      - sourceline: 'deb http://us-east-1.ec2.archive.ubuntu.com/ubuntu/ trusty main'
     packages:
       - jq
       - traceroute
