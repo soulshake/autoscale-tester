@@ -12,6 +12,8 @@ SECONDS=0
 $echo "START: $(date)"
 $echo "SLEEPING: ${SLEEP} seconds"
 
+echo '{}' | jq .
+
 if [ "${KEEPALIVE}" == true ]; then
   $echo "KEEPING ALIVE"
   while [ "${SECONDS}" -lt "${SLEEP}" ]; do
