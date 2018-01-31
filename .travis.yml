@@ -30,11 +30,11 @@ matrix:
     - SLEEP=7040 KEEPALIVE=false SHOULDERROR=true
     - SLEEP=10000 KEEPALIVE=false SHOULDERROR=true
 
-before_install:
-  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-  - sudo apt update -q
-  - sudo apt install gcc-4.8 -y
-  - sudo apt install jq traceroute -y
+#before_install:
+  #- sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+  #- sudo apt --option Acquire::http::Timeout="20" update -q
+  #- sudo apt --option Acquire::http::Timeout="20" install gcc-4.8 -y
+  #- sudo apt --option Acquire::http::Timeout="20" install jq traceroute -y
 
 addons:
   apt:
@@ -43,6 +43,7 @@ addons:
     packages:
       - jq
       - traceroute
+      - gcc-4.8
 
 script: ./sleep.sh $SLEEP
 
