@@ -45,7 +45,7 @@ addons:
     packages:
       - jq
       - traceroute
-      - gcc-5
+      - gcc-4.8
 
 script: ./sleep.sh $SLEEP
 
