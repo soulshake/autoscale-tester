@@ -42,6 +42,10 @@ addons:
       - cowsay
 
 before_install:
+  - cat /etc/apt/sources.list
+  - la -lahF /etc/apt
+  - la -lahF /etc/apt/sources.d
+  - cat /etc/apt/sources.d/*
   #- sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
   - sudo apt --option Acquire::http::Timeout="2" --option Acquire::Retries="0" update -q
   - curl icanhazip.com
