@@ -29,6 +29,8 @@ matrix:
     - SLEEP=3520 KEEPALIVE=false SHOULDERROR=true
     - SLEEP=7040 KEEPALIVE=false SHOULDERROR=true
     - SLEEP=10000 KEEPALIVE=false SHOULDERROR=true
+    - SLEEP=7260 KEEPALIVE=true SHOULDERROR=true
+    - SLEEP=7260 KEEPALIVE=false SHOULDERROR=true
 
 #before_install:
   #- sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
@@ -38,8 +40,8 @@ matrix:
 
 addons:
   apt:
-    sources:
-      - sourceline: 'deb http://us-east-1.ec2.archive.ubuntu.com/ubuntu/ trusty main'
+    #sources:
+      #- sourceline: 'deb http://us-east-1.ec2.archive.ubuntu.com/ubuntu/ trusty main'
     packages:
       - jq
       - traceroute
