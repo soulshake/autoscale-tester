@@ -33,6 +33,8 @@ matrix:
     - SLEEP=7260 KEEPALIVE=false SHOULDERROR=true
 
 before_install:
+  - curl icanhazip.com
+  - uptime
   - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
   #- sudo apt --option Acquire::http::Timeout="20" update -q
   #- sudo apt --option Acquire::http::Timeout="20" install gcc-4.8 -y
@@ -46,6 +48,10 @@ addons:
       - jq
       - traceroute
       - gcc-4.8
+
+before_script:
+  - curl icanhazip.com
+  - uptime
 
 script: ./sleep.sh $SLEEP
 

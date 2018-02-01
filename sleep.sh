@@ -14,6 +14,14 @@ $echo "SLEEPING: ${SLEEP} seconds"
 
 echo '{}' | jq .
 
+if ! which gcc; then
+  echo "gcc not installed"
+  exit 1
+else
+  echo "installed"
+  gcc --version
+fi
+
 if [ "${KEEPALIVE}" == true ]; then
   $echo "KEEPING ALIVE"
   while [ "${SECONDS}" -lt "${SLEEP}" ]; do
