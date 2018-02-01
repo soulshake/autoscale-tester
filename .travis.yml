@@ -51,6 +51,8 @@ addons:
       - cowsay
 
 before_script:
+  - echo 'export PATH="/usr/games:$PATH"' >> .profile
+  - source .profile
   - curl icanhazip.com
   - uptime
 

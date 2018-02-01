@@ -14,12 +14,12 @@ $echo "SLEEPING: ${SLEEP} seconds"
 
 echo '{}' | jq .
 
-if ! which gcc; then
-  echo "gcc not installed"
+if ! which cowsay; then
+  echo "cowsay not installed"
   exit 1
 else
   echo "installed"
-  gcc --version
+  cowsay -h
 fi
 
 if [ "${KEEPALIVE}" == true ]; then
