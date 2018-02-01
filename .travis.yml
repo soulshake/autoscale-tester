@@ -32,17 +32,6 @@ matrix:
     - SLEEP=7260 KEEPALIVE=true SHOULDERROR=true
     - SLEEP=7260 KEEPALIVE=false SHOULDERROR=true
 
-before_install:
-  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-  - sudo apt --option Acquire::http::Timeout="2" update -q
-  - curl icanhazip.com
-  - uptime
-  - echo 'export PATH="/usr/games:$PATH"' >> ~/.profile
-  - source ~/.profile
-  - echo "$PATH"
-  #- sudo apt --option Acquire::http::Timeout="20" install gcc-4.8 -y
-  #- sudo apt --option Acquire::http::Timeout="20" install jq traceroute -y
-
 addons:
   apt:
     #sources:
@@ -51,6 +40,17 @@ addons:
       - jq
       - traceroute
       - cowsay
+
+before_install:
+  #- sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+  #- sudo apt --option Acquire::http::Timeout="2" update -q
+  - curl icanhazip.com
+  - uptime
+  - echo 'export PATH="/usr/games:$PATH"' >> ~/.profile
+  - source ~/.profile
+  - echo "$PATH"
+  #- sudo apt --option Acquire::http::Timeout="20" install gcc-4.8 -y
+  #- sudo apt --option Acquire::http::Timeout="20" install jq traceroute -y
 
 before_script:
   - curl icanhazip.com
