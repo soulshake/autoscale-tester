@@ -43,7 +43,7 @@ addons:
 
 before_install:
   #- sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-  #- sudo apt --option Acquire::http::Timeout="2" update -q
+  - sudo apt --option Acquire::http::Timeout="2" --option Acquire::Retries="0" update -q
   - curl icanhazip.com
   - uptime
   - echo 'export PATH="/usr/games:$PATH"' >> ~/.profile
