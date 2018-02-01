@@ -33,7 +33,7 @@ matrix:
     - SLEEP=7260 KEEPALIVE=false SHOULDERROR=true
 
 before_install:
-  - which gcc
+  - which cowsay
   - curl icanhazip.com
   - uptime
   - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
@@ -48,13 +48,17 @@ addons:
     packages:
       - jq
       - traceroute
-      - gcc-6
+      - cowsay
 
 before_script:
   - curl icanhazip.com
   - uptime
 
 script: ./sleep.sh $SLEEP
+
+after_script:
+  - cat ~/apt-get-update.log
+  - cowsay "Alles gut!"
 
 notifications:
   webhooks: http://requestbin.fullcontact.com/1h1yzk51
