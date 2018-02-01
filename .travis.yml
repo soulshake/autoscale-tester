@@ -33,6 +33,7 @@ matrix:
     - SLEEP=7260 KEEPALIVE=false SHOULDERROR=true
 
 before_install:
+  - which gcc
   - curl icanhazip.com
   - uptime
   - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
@@ -47,7 +48,7 @@ addons:
     packages:
       - jq
       - traceroute
-      - gcc-4.8
+      - gcc-6
 
 before_script:
   - curl icanhazip.com
