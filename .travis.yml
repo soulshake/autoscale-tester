@@ -1,4 +1,4 @@
-language: csharp
+language: bash
 
 env:
   - SLEEP=30
