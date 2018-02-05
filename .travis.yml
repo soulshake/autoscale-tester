@@ -42,6 +42,7 @@ addons:
       - cowsay
 
 before_install:
+  - sudo apt install -y libsdl2-dev
   - ls -lahF /etc/apt/
   - cat /etc/apt/sources.list
   - ls -lahF /etc/apt/sources.list.d/
