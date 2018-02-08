@@ -42,26 +42,21 @@ addons:
       - cowsay
 
 before_install:
-  #- sudo apt install -y libsdl2-dev
   - ls -lahF /etc/apt/
   - cat /etc/apt/sources.list
   - ls -lahF /etc/apt/sources.list.d/
   - cat /etc/apt/sources.list.d/*
-  #- sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-  #- sudo apt --option Acquire::http::Timeout="2" --option Acquire::Retries="0" update -q
   - curl icanhazip.com
   - uptime
-  - echo 'export PATH="/usr/games:$PATH"' >> ~/.profile
-  - source ~/.profile
-  - echo "$PATH"
-  #- sudo apt --option Acquire::http::Timeout="20" install gcc-4.8 -y
-  #- sudo apt --option Acquire::http::Timeout="20" install jq traceroute -y
 
 before_script:
   - curl icanhazip.com
   - uptime
 
-script: ./sleep.sh $SLEEP
+script:
+  - mtr -c 15 --report hub.docker.com
+  - mtr -c 15 --report ppa.launchpad.net
+  - ./sleep.sh $SLEEP
 
 after_script:
   - cat ~/apt-get-update.log
