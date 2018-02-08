@@ -40,6 +40,7 @@ addons:
       - jq
       - traceroute
       - cowsay
+      - mtr
 
 before_install:
   - ls -lahF /etc/apt/
@@ -48,6 +49,9 @@ before_install:
   - cat /etc/apt/sources.list.d/*
   - curl icanhazip.com
   - uptime
+  - echo 'export PATH="/usr/games:$PATH"' >> ~/.profile
+  - source ~/.profile
+  - echo "$PATH"
 
 before_script:
   - curl icanhazip.com
