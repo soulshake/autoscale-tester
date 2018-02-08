@@ -58,8 +58,8 @@ before_script:
   - uptime
 
 script:
-  - mtr -c 15 --report hub.docker.com
-  - mtr -c 15 --report ppa.launchpad.net
+  #- mtr -c 15 --report hub.docker.com
+  #- mtr -c 15 --report ppa.launchpad.net
   - ./sleep.sh $SLEEP
 
 after_script:
