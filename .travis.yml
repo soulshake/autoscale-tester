@@ -40,7 +40,6 @@ addons:
       - jq
       - traceroute
       - cowsay
-      - mtr
 
 before_install:
   - ls -lahF /etc/apt/
@@ -58,8 +57,6 @@ before_script:
   - uptime
 
 script:
-  - mtr -c 15 --report hub.docker.com
-  - mtr -c 15 --report ppa.launchpad.net
   - ./sleep.sh $SLEEP
 
 after_script:
