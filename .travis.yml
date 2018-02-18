@@ -40,6 +40,7 @@ addons:
       - jq
       - traceroute
       - cowsay
+      - stress
 
 before_install:
   - ls -lahF /etc/apt/
@@ -63,6 +64,3 @@ after_script:
   - cat ~/apt-get-update.log
   - cowsay "Alles gut!"
   - cat /var/log/dpkg.log
-
-notifications:
-  webhooks: http://requestbin.fullcontact.com/1h1yzk51
