@@ -5,7 +5,7 @@ stderr_echo() {
 }
 
 #echo=stderr_echo
-echo=echo
+echo="$(which echo)"
 
 $echo "SECONDS: ${SECONDS}"
 
@@ -28,7 +28,7 @@ if [ "${KEEPALIVE}" == true ]; then
   while [ "${SECONDS}" -lt "${SLEEP}" ]; do
     $echo "${SECONDS} < ${SLEEP}"
     #sleep 300
-    stress --cpu 2 --timeout 300
+    stress --cpu 4 --timeout 300
   done
 else
   $echo "NOT KEEPING ALIVE"
