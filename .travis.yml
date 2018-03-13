@@ -44,6 +44,7 @@ addons:
 
 before_install:
   - sysctl -n net.ipv6.conf.default.disable_ipv6
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
   - sudo apt install -y libsdl2-dev
   - ls -lahF /etc/apt/
   - cat /etc/apt/sources.list
