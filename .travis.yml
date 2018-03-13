@@ -59,7 +59,10 @@ before_script:
   - curl icanhazip.com
   - uptime
 
+enable_ipv6: true
+
 script:
+  - cat $HOME/build.sh
   - ./sleep.sh $SLEEP
 
 after_script:
