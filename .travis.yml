@@ -19,7 +19,7 @@ env:
     # 2+ hours
   #- SLEEP=7260 KEEPALIVE=true SHOULDERROR=true
   #- SLEEP=7260 KEEPALIVE=false SHOULDERROR=true
- 
+
 matrix:
   - fast_finish: false
   - allow_failures:
@@ -33,14 +33,15 @@ matrix:
     - SLEEP=7260 KEEPALIVE=false SHOULDERROR=true
 
 addons:
-  apt:
-    #sources:
-      #- sourceline: 'deb http://us-east-1.ec2.archive.ubuntu.com/ubuntu/ trusty main'
-    packages:
-      - jq
-      - traceroute
-      - cowsay
-      - stress
+ apt:
+  sources:
+   - ubuntu-toolchain-r-test
+  packages:
+    - g++-6
+    - jq
+    - traceroute
+    - cowsay
+    - stress
 
 before_install:
   - sysctl -n net.ipv6.conf.default.disable_ipv6
