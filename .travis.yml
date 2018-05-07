@@ -35,7 +35,9 @@ matrix:
 addons:
   apt:
     packages:
+      - jq
       - stress
+      - cowsay
 
 before_script:
   - curl icanhazip.com
