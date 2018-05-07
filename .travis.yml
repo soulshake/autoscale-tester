@@ -4,21 +4,21 @@ env:
   - SLEEP=30
   - SLEEP=60
   - SLEEP=90
-  #- SLEEP=120
-  #- SLEEP=180
-  #- SLEEP=240
-  #- SLEEP=300
-  #- SLEEP=360
+  - SLEEP=120
+  - SLEEP=180
+  - SLEEP=240
+  - SLEEP=300
+  - SLEEP=360
     # 10+ minutes
-  #- SLEEP=660 KEEPALIVE=false SHOULDERROR=true
-  #- SLEEP=880 KEEPALIVE=false SHOULDERROR=true
-  #- SLEEP=1760 KEEPALIVE=false SHOULDERROR=true
-  #- SLEEP=3520 KEEPALIVE=false SHOULDERROR=true
-  #- SLEEP=7040 KEEPALIVE=false SHOULDERROR=true
-  #- SLEEP=10000 KEEPALIVE=false SHOULDERROR=true
+  - SLEEP=660 KEEPALIVE=false SHOULDERROR=true
+  - SLEEP=880 KEEPALIVE=false SHOULDERROR=true
+  - SLEEP=1760 KEEPALIVE=false SHOULDERROR=true
+  - SLEEP=3520 KEEPALIVE=false SHOULDERROR=true
+  - SLEEP=7040 KEEPALIVE=false SHOULDERROR=true
+  - SLEEP=10000 KEEPALIVE=false SHOULDERROR=true
     # 2+ hours
-  #- SLEEP=7260 KEEPALIVE=true SHOULDERROR=true
-  #- SLEEP=7260 KEEPALIVE=false SHOULDERROR=true
+  - SLEEP=7260 KEEPALIVE=true SHOULDERROR=true
+  - SLEEP=7260 KEEPALIVE=false SHOULDERROR=true
  
 matrix:
   - fast_finish: false
@@ -34,27 +34,8 @@ matrix:
 
 addons:
   apt:
-    #sources:
-      #- sourceline: 'deb http://us-east-1.ec2.archive.ubuntu.com/ubuntu/ trusty main'
     packages:
-      - jq
-      - traceroute
-      - cowsay
       - stress
-
-before_install:
-  - sysctl -n net.ipv6.conf.default.disable_ipv6
-  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-  - sudo apt install -y libsdl2-dev
-  - ls -lahF /etc/apt/
-  - cat /etc/apt/sources.list
-  - ls -lahF /etc/apt/sources.list.d/
-  - cat /etc/apt/sources.list.d/*
-  - curl icanhazip.com
-  - uptime
-  - echo 'export PATH="/usr/games:$PATH"' >> ~/.profile
-  - source ~/.profile
-  - echo "$PATH"
 
 before_script:
   - curl icanhazip.com
@@ -62,8 +43,3 @@ before_script:
 
 script:
   - ./sleep.sh $SLEEP
-
-after_script:
-  - cat ~/apt-get-update.log
-  - cowsay "Alles gut!"
-  - cat /var/log/dpkg.log
