@@ -13,16 +13,6 @@ SECONDS=0
 $echo "START: $(date)"
 $echo "SLEEPING: ${SLEEP} seconds"
 
-echo '{}' | jq .
-
-if ! which cowsay; then
-  echo "cowsay not installed"
-  exit 1
-else
-  echo "installed"
-  cowsay -h
-fi
-
 if [ "${KEEPALIVE}" == true ]; then
   $echo "KEEPING ALIVE"
   while [ "${SECONDS}" -lt "${SLEEP}" ]; do
