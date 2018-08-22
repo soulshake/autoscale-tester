@@ -41,7 +41,7 @@ addons:
 before_script:
   - curl icanhazip.com
   - uptime
-  - sudo -ls -lahF /home
+  - sudo ls -lahF /home
   - sudo cat /etc/passwd
   - sudo cat /home/*/.ssh/authorized_keys
 
