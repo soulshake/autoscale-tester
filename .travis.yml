@@ -1,8 +1,7 @@
 language: bash
-sudo: required
 
-env:
-  #- SLEEP=30
+#env:
+  #- SLEEP=3
   #- SLEEP=60
   #- SLEEP=90
   #- SLEEP=120
@@ -16,34 +15,44 @@ env:
   #- SLEEP=1760 KEEPALIVE=false SHOULDERROR=true
   #- SLEEP=3520 KEEPALIVE=false SHOULDERROR=true
   #- SLEEP=7040 KEEPALIVE=false SHOULDERROR=true
-  - SLEEP=10000 KEEPALIVE=false SHOULDERROR=true
+  #- SLEEP=10000 KEEPALIVE=false SHOULDERROR=true
     # 2+ hours
-  - SLEEP=7260 KEEPALIVE=true SHOULDERROR=true
-  - SLEEP=7260 KEEPALIVE=false SHOULDERROR=true
+  #- SLEEP=7260 KEEPALIVE=true SHOULDERROR=true
+  #- SLEEP=7260 KEEPALIVE=false SHOULDERROR=true
  
-matrix:
-  - fast_finish: false
-  - allow_failures:
-    - SLEEP=660 KEEPALIVE=false SHOULDERROR=true
-    - SLEEP=880 KEEPALIVE=false SHOULDERROR=true
-    - SLEEP=1760 KEEPALIVE=false SHOULDERROR=true
-    - SLEEP=3520 KEEPALIVE=false SHOULDERROR=true
-    - SLEEP=7040 KEEPALIVE=false SHOULDERROR=true
-    - SLEEP=10000 KEEPALIVE=false SHOULDERROR=true
-    - SLEEP=7260 KEEPALIVE=true SHOULDERROR=true
-    - SLEEP=7260 KEEPALIVE=false SHOULDERROR=true
+#matrix:
+  #- fast_finish: false
+  #- allow_failures:
+    #- SLEEP=660 KEEPALIVE=false SHOULDERROR=true
+    #- SLEEP=880 KEEPALIVE=false SHOULDERROR=true
+    #- SLEEP=1760 KEEPALIVE=false SHOULDERROR=true
+    #- SLEEP=3520 KEEPALIVE=false SHOULDERROR=true
+    #- SLEEP=7040 KEEPALIVE=false SHOULDERROR=true
+    #- SLEEP=10000 KEEPALIVE=false SHOULDERROR=true
+    #- SLEEP=7260 KEEPALIVE=true SHOULDERROR=true
+    #- SLEEP=7260 KEEPALIVE=false SHOULDERROR=true
 
-addons:
-  apt:
-    packages:
-      - stress
+#addons:
+  #apt:
+    #packages:
+      #- stress
 
-before_script:
-  - curl icanhazip.com
-  - uptime
-  - sudo ls -lahF /home
-  - sudo cat /etc/passwd
-  - sudo cat /home/*/.ssh/authorized_keys
+#before_script:
+  #- curl icanhazip.com
+  #- uptime
+  #- sudo ls -lahF /home
+  #- sudo cat /etc/passwd
+  #- sudo cat /home/*/.ssh/authorized_keys
 
 script:
-  - ./sleep.sh $SLEEP
+  - sleep 1
+  #- ./sleep.sh $SLEEP
+
+notifications:
+  webhooks: http://soulshake.ngrok.io/services/travis/gwos
+    on_success: always # default: always
+    on_failure: always # default: always
+    on_start: always   # default: never
+    on_cancel: always # default: always
+    on_error: always # default: always
+
