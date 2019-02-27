@@ -8,8 +8,10 @@ sudo: required
   #- SLEEP=7260 KEEPALIVE=false SHOULDERROR=true
 
 before_script:
-  - curl icanhazip.com
-  - sudo ls -la /etc/default
+  - sudo docker info
+  - systemctl status docker
+  - sudo ls -la /etc/default/docker
+  - sudo cat /etc/default/docker
   - sudo docker pull alpine
 
 #script:
