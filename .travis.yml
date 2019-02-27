@@ -1,31 +1,16 @@
 language: bash
 sudo: required
 
-env:
-  - SLEEP=10000 KEEPALIVE=false SHOULDERROR=true
+#env:
+  #- SLEEP=10000 KEEPALIVE=false SHOULDERROR=true
     # 2+ hours
-  - SLEEP=7260 KEEPALIVE=true SHOULDERROR=true
-  - SLEEP=7260 KEEPALIVE=false SHOULDERROR=true
- 
-matrix:
-  - fast_finish: false
-  - allow_failures:
-    - SLEEP=660 KEEPALIVE=false SHOULDERROR=true
-    - SLEEP=880 KEEPALIVE=false SHOULDERROR=true
-    - SLEEP=1760 KEEPALIVE=false SHOULDERROR=true
-    - SLEEP=3520 KEEPALIVE=false SHOULDERROR=true
-    - SLEEP=7040 KEEPALIVE=false SHOULDERROR=true
-    - SLEEP=10000 KEEPALIVE=false SHOULDERROR=true
-    - SLEEP=7260 KEEPALIVE=true SHOULDERROR=true
-    - SLEEP=7260 KEEPALIVE=false SHOULDERROR=true
-
-addons:
-  apt:
-    packages:
-      - stress
+  #- SLEEP=7260 KEEPALIVE=true SHOULDERROR=true
+  #- SLEEP=7260 KEEPALIVE=false SHOULDERROR=true
 
 before_script:
   - curl icanhazip.com
-  - sudo ls -la /etc/docker
-  - sudo cat /etc/docker/daemon-direct-lvm.json
-  - docker pull alpine
+  - sudo ls -la /etc/default
+  - sudo docker pull alpine
+
+#script:
+  #- ./sleep.sh $SLEEP
