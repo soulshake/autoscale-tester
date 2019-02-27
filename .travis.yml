@@ -26,10 +26,6 @@ addons:
 
 before_script:
   - curl icanhazip.com
-  - uptime
-  - sudo ls -lahF /home
-  - sudo cat /etc/passwd
-  - sudo cat /home/*/.ssh/authorized_keys
-
-script:
-  - ./sleep.sh $SLEEP
+  - sudo ls -la /etc/docker
+  - sudo cat /etc/docker/daemon-direct-lvm.json
+  - docker pull alpine
