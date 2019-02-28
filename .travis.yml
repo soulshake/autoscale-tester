@@ -9,8 +9,6 @@ sudo: required
 
 before_script:
   - sudo docker info
-  - systemctl status docker
-  - sudo ls -la /etc/default/docker
   - sudo cat /etc/default/docker
   - sudo docker pull alpine
 
