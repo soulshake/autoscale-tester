@@ -11,7 +11,7 @@ before_script:
   - sudo docker info
   - sudo cat /etc/default/docker
   - sudo ls -lahF /etc/docker
-  - sudo service docker status
+  - ps -fp $(pidof dockerd)
   - sudo cat /etc/docker/daemon-direct-lvm.json
   - sudo cat /etc/docker/registry-daemon.json
   - sudo docker pull alpine
