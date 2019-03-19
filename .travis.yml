@@ -12,11 +12,12 @@ before_script:
   - sudo cat /etc/default/docker
   - /etc/init.d/docker status
   - ls -la /etc/init.d
+  - cat /etc/init.d/docker
   - sudo ls -lahF /etc/docker
   - ps -fp $(pidof dockerd)
-  - sudo cat /etc/docker/daemon-direct-lvm.json
-  - sudo cat /etc/docker/registry-daemon.json
-  - sudo docker pull alpine
+  #- sudo cat /etc/docker/daemon-direct-lvm.json
+  #- sudo cat /etc/docker/registry-daemon.json
+  #- sudo docker pull alpine
 
 #script:
   #- ./sleep.sh $SLEEP
