@@ -16,7 +16,6 @@ before_script:
   - sudo ls -lahF /etc/docker
   - ps -fp $(pidof dockerd)
   - env | sort
-  - sudo source /etc/default/docker
   - echo "DOCKER_OPTS="$DOCKER_OPTS" --registry-mirror "http://staging-1-docker-registry.gce-us-central1.travisci.net"" | sudo tee /etc/default/docker
   - sudo cat /etc/default/docker
   - sudo service docker force-reload
