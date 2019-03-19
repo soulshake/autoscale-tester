@@ -15,6 +15,13 @@ before_script:
   - cat /etc/init.d/docker
   - sudo ls -lahF /etc/docker
   - ps -fp $(pidof dockerd)
+  - env
+  - echo 'DOCKER_OPTS="$DOCKER_OPTS --registry-mirror "http://staging-1-docker-registry.gce-us-central1.travisci.net"' | sudo tee -a /etc/default/docker
+  - service docker restart
+  - ps -fp $(pidof dockerd)
+  #- dockerd --registry-mirror "http://staging-1-docker-registry.gce-us-central1.travisci.net"
+  - la -la /var/log
+  - cat /var/log/docker.log
   #- sudo cat /etc/docker/daemon-direct-lvm.json
   #- sudo cat /etc/docker/registry-daemon.json
   #- sudo docker pull alpine
