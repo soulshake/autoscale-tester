@@ -24,7 +24,7 @@ before_script:
   - sudo docker info
   - ps -fp $(pidof dockerd)
   - ls -la /var/log/upstart
-  - cat /var/log/upstart/docker.log
+  - sudo cat /var/log/upstart/docker.log
   #- sudo cat /etc/docker/daemon-direct-lvm.json
   #- sudo cat /etc/docker/registry-daemon.json
   - sudo docker pull alpine
