@@ -10,6 +10,8 @@ sudo: required
 before_script:
   - sudo docker info
   - sudo cat /etc/default/docker
+  - /etc/init.d/docker status
+  - ls -la /etc/init.d
   - sudo ls -lahF /etc/docker
   - ps -fp $(pidof dockerd)
   - sudo cat /etc/docker/daemon-direct-lvm.json
