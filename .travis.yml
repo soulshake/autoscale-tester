@@ -17,15 +17,17 @@ before_script:
   - ps -fp $(pidof dockerd)
   - env | sort
   - echo 'DOCKER_OPTS="$DOCKER_OPTS --registry-mirror "http://staging-1-docker-registry.gce-us-central1.travisci.net"' | sudo tee -a /etc/default/docker
-  - echo "$DOCKER_OPTS"
-  - sudo service docker restart
+  - sudo cat /etc/default/docker
+  - sudo service docker force-reload
+  - sudo docker info
   - ps -fp $(pidof dockerd)
   #- dockerd --registry-mirror "http://staging-1-docker-registry.gce-us-central1.travisci.net"
   - la -la /var/log
+  - grep docker /var/log/syslog
   - cat /var/log/docker.log
   #- sudo cat /etc/docker/daemon-direct-lvm.json
   #- sudo cat /etc/docker/registry-daemon.json
-  #- sudo docker pull alpine
+  - sudo docker pull alpine
 
 #script:
   #- ./sleep.sh $SLEEP
