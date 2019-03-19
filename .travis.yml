@@ -9,11 +9,11 @@ sudo: required
 
 before_script:
   - sudo docker info
-  - sudo docker info | grep -i mirror
   - sudo ls -lahF /etc/docker
   - ps -fp $(pidof dockerd)
   - sudo cat /var/log/upstart/docker.log
   - sudo docker pull alpine
+  - sudo docker info | grep -i mirror
 
 #script:
   #- ./sleep.sh $SLEEP
