@@ -21,8 +21,6 @@ before_script:
   #- echo "DOCKER_OPTS="$DOCKER_OPTS" --registry-mirror "http://staging-1-docker-registry.gce-us-central1.travisci.net"" | sudo tee /etc/default/docker
   #- sudo cat /etc/default/docker
   - sudo restart docker
-  #- sudo service docker stop
-  #- sudo service docker start
   - sudo docker info
   - ps -fp $(pidof dockerd)
   #- dockerd --registry-mirror "http://staging-1-docker-registry.gce-us-central1.travisci.net"
