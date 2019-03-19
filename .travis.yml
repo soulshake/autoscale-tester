@@ -15,8 +15,9 @@ before_script:
   - cat /etc/init.d/docker
   - sudo ls -lahF /etc/docker
   - ps -fp $(pidof dockerd)
-  - env
+  - env | sort
   - echo 'DOCKER_OPTS="$DOCKER_OPTS --registry-mirror "http://staging-1-docker-registry.gce-us-central1.travisci.net"' | sudo tee -a /etc/default/docker
+  - echo "$DOCKER_OPTS"
   - sudo service docker restart
   - ps -fp $(pidof dockerd)
   #- dockerd --registry-mirror "http://staging-1-docker-registry.gce-us-central1.travisci.net"
