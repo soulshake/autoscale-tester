@@ -15,7 +15,7 @@ before_script:
   - cat /etc/init.d/docker
   - sudo ls -lahF /etc/docker
   #- env | sort
-  - echo '{ "registry-mirrors": ["https://mirror.gcr.io"] }' | sudo tee /etc/docker/daemon.json
+  - cat daemon.json | sudo tee /etc/docker/daemon.json
   #- DOCKER_OPTS="${DOCKER_OPTS} --registry-mirror=https://mirror.gcr.io"
   - ps -fp $(pidof dockerd)
   #- echo "DOCKER_OPTS="$DOCKER_OPTS" --registry-mirror "http://staging-1-docker-registry.gce-us-central1.travisci.net"" | sudo tee /etc/default/docker
@@ -23,9 +23,7 @@ before_script:
   - sudo restart docker
   - sudo docker info
   - ps -fp $(pidof dockerd)
-  #- dockerd --registry-mirror "http://staging-1-docker-registry.gce-us-central1.travisci.net"
   - ls -la /var/log/upstart
-  #- sudo grep docker /var/log/syslog
   - cat /var/log/upstart/docker.log
   #- sudo cat /etc/docker/daemon-direct-lvm.json
   #- sudo cat /etc/docker/registry-daemon.json
