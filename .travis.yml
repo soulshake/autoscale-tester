@@ -16,6 +16,8 @@ before_script:
   - sudo docker pull alpine
   - sudo docker info | grep -i mirror
   - sudo cat /etc/docker/daemon.json
+  - service docker restart
+  - sudo docker info | grep -i mirror
 
 #script:
   #- ./sleep.sh $SLEEP
