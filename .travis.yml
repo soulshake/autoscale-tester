@@ -1,5 +1,6 @@
-language:__stevonnie__
+language: __stevonnie__
 group: dev
+dist: xenial
 
 #env:
   #- SLEEP=10000 KEEPALIVE=false SHOULDERROR=true
