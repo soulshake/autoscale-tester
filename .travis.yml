@@ -1,5 +1,5 @@
 language: __stevonnie__
-sudo: required
+group: dev
 
 #env:
   #- SLEEP=10000 KEEPALIVE=false SHOULDERROR=true
