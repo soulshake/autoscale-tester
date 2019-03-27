@@ -1,6 +1,6 @@
 language: bash
 #group: dev
-#dist: xenial
+dist: xenial
 
 #env:
   #- SLEEP=10000 KEEPALIVE=false SHOULDERROR=true
